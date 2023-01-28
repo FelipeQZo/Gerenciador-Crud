@@ -4,7 +4,9 @@ import { TarefaService } from './shared';
 import { FormsModule } from '@angular/forms';
 import { ListarTarefaComponent } from './listar';
 import { RouterModule } from '@angular/router';
-import { CadastrarComponent } from './cadastrar'
+import { CadastrarComponent } from './cadastrar';
+import { EditarComponent } from './editar';
+import { TarefaConcluidaDirective } from './shared/tarefa-concluida.directive'
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { CadastrarComponent } from './cadastrar'
   ],
   declarations: [
     ListarTarefaComponent,
-    CadastrarComponent
+    CadastrarComponent,
+    EditarComponent,
+    TarefaConcluidaDirective
   ],
 
 })

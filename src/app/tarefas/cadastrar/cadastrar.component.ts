@@ -30,9 +30,10 @@ export class CadastrarComponent implements OnInit {
   O metodo não será chamado e não haverá cadastro*/
 
   cadastrar(): void {
+    console.log (this.formTarefa)
     if (this.formTarefa.form.valid) {
   	  this.tarefaService.cadastrar(this.tarefa); // método cadastrar() é chamado do tarefa.service
-  	  this.router.navigate(["/tarefas"]);       // passando como par
+  	  this.router.navigate(["/tarefas"]);       // passando como parametro variavel tarefa
     }
   }
 

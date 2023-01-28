@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TarefaService } from '../shared';
 import { Tarefa } from '../shared';
+import { TarefaConcluidaDirective } from '../shared';
 
 @Component({
   selector: 'app-listar-tarefa',
@@ -21,7 +22,6 @@ export class ListarTarefaComponent implements OnInit {
     todas as tarefas existentes */
   }
 
-
   /* Essa função deve listar todas as tarefas da aplicação
   Ela está chamando a função listar do tarefaService
   Consulte o NgOnInIt*/
@@ -29,6 +29,19 @@ export class ListarTarefaComponent implements OnInit {
     return this.tarefaService.listar();
   }
 
+  remover($event: any, tarefa: Tarefa): void {
+    $event.preventDefault(); //evita de deixar a página recarregar para realizar a ação
 
+    /* Abaixo será impresso uma mensagem de confirmação. O método confirm
+    Retorna um valor booleano para a resposta desejada.  */
+    if (confirm('Deseja remover a tarefa "' + tarefa.nome + '"?')) {
+      this.tarefaService.remover(tarefa.id);
+      this.tarefas = this.listarTodos();
+    }
+  }
 
-}
+  alterarStatus(tarefa: Tarefa): void {
+      this.tarefaService.alterarStatus(tarefa.id);
+      this.tarefas = this.listarTodos();
+    }
+  }

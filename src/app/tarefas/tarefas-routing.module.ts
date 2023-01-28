@@ -1,7 +1,10 @@
 
 import { Routes } from "@angular/router";
+
 import { ListarTarefaComponent } from "./listar";
 import { CadastrarComponent } from "./cadastrar";
+import { EditarComponent } from "./editar";
+
 
 export const TarefasRoutes: Routes = [
   {
@@ -22,6 +25,11 @@ para tarefas/listar, logo repete o primeiro path */
     path: 'tarefas/cadastrar',
     component: CadastrarComponent
 
+  },
+
+  {
+    path: 'tarefas/editar/:id', // O Id aqoi está relacionado com o tarefas.id da classe tarefa
+    component: EditarComponent  // Ele será exibido dinamicamente dependendo da tarefa selecionada para edição
   }
 
 ];
